@@ -5,7 +5,7 @@ local priority = 0
 local utils = require "nvim-semantic-tokens.utils"
 local _, semantic_tokens = pcall(require, "vim.lsp.semantic_tokens")
 if not vim.lsp.buf.semantic_tokens_full then
-  vim.lsp._request_name_to_capability["textDocument/semanticTokens/full"] = { "semanticTokensProvider" }
+  vim.lsp.protocol._request_name_to_capability["textDocument/semanticTokens/full"] = { "semanticTokensProvider" }
   local function request(method, params, handler)
     return vim.lsp.buf_request(0, method, params, handler)
   end
